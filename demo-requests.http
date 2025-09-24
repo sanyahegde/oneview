@@ -1,0 +1,127 @@
+# Demo API Requests
+
+## Authentication
+
+### Register Demo User
+```bash
+curl -X POST "http://localhost:8000/api/v1/auth/register" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "demo@portfolioai.com",
+    "password": "demo123",
+    "full_name": "Demo User"
+  }'
+```
+
+### Login Demo User
+```bash
+curl -X POST "http://localhost:8000/api/v1/auth/login" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "demo@portfolioai.com",
+    "password": "demo123"
+  }'
+```
+
+## Account Management
+
+### Link Robinhood Account
+```bash
+curl -X POST "http://localhost:8000/api/v1/accounts/link" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "provider": "robinhood",
+    "public_token": "demo_robinhood_token_123"
+  }'
+```
+
+### Link Schwab Account
+```bash
+curl -X POST "http://localhost:8000/api/v1/accounts/link" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "provider": "schwab",
+    "public_token": "demo_schwab_token_456"
+  }'
+```
+
+### Link Bank Account (Plaid)
+```bash
+curl -X POST "http://localhost:8000/api/v1/accounts/link" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "provider": "plaid",
+    "public_token": "demo_plaid_token_789"
+  }'
+```
+
+### Get All Accounts
+```bash
+curl -X GET "http://localhost:8000/api/v1/accounts/" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+## Portfolio Data
+
+### Get Holdings
+```bash
+curl -X GET "http://localhost:8000/api/v1/holdings/" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+### Get Transactions
+```bash
+curl -X GET "http://localhost:8000/api/v1/transactions/" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+### Get Transactions with Filters
+```bash
+curl -X GET "http://localhost:8000/api/v1/transactions/?symbol=AAPL&type=buy&page=1&page_size=10" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+## Health Check
+
+### API Health
+```bash
+curl -X GET "http://localhost:8000/health"
+```
+
+### API Documentation
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+## Demo Data
+
+The system automatically seeds demo data including:
+- Demo user (demo@portfolioai.com / demo123)
+- Sample brokerage accounts
+- Mock holdings (AAPL, GOOGL, TSLA, MSFT, NVDA)
+- Sample transactions
+- Portfolio snapshots
+
+## Testing
+
+### Run Backend Tests
+```bash
+cd backend
+pytest tests/ -v
+```
+
+### Run ML Model Training
+```bash
+cd ml-models/src
+python train_sentiment.py
+python train_price_signal.py
+python export_coreml.py
+```
+
+### Build iOS App
+```bash
+cd ios-app
+xcodebuild -project PortfolioAI.xcodeproj -scheme PortfolioAI -destination 'platform=iOS Simulator,name=iPhone 15' build
+```
