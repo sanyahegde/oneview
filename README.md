@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PortfolioAI
 
 A production-ready full-stack personal portfolio manager with iOS SwiftUI app, FastAPI backend, and ML module for sentiment analysis and basic predictions.
@@ -75,3 +76,7 @@ portfolioai/
 ## License
 
 MIT License - see LICENSE file for details.
+=======
+# oneview
+full-stack iOS + backend application for unified portfolio management
+>>>>>>> aa4b37e7418ba5f07375eee988decf7c90dd576d
