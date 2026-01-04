@@ -1,0 +1,49 @@
+/* Recharts styling for monochrome theme */
+
+.recharts-wrapper {
+  color: var(--text-secondary);
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-tertiary) !important;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.recharts-legend-item-text {
+  fill: var(--text-secondary) !important;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--text-primary) !important;
+  font-weight: 400 !important;
+  font-size: 0.85rem !important;
+}
+
+.recharts-tooltip-item-value {
+  color: var(--text-primary) !important;
+  font-weight: 400 !important;
+}
+
+.recharts-active-dot {
+  fill: var(--text-primary) !important;
+  r: 4 !important;
+}
+
+.recharts-area {
+  opacity: 0.1;
+}
+

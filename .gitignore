@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation (exclude from commits)
+*.md
+!README.md
+
+# Documentation files (optional - user may want to track README)
+# Uncomment to ignore all markdown files:
+# *.md
+# Or ignore specific ones:
+RUN.md
+QUICK_START.md
+WHAT_IS_THIS.md
+DATA_SOURCES.md
+
