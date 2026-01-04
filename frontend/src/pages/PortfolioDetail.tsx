@@ -225,7 +225,7 @@ export default function PortfolioDetail() {
                   stroke="var(--bg-secondary)"
                   strokeWidth={2}
                 >
-                  {summary.asset_allocation.map((entry, index) => (
+                  {summary.asset_allocation.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>

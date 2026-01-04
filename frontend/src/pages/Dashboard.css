@@ -57,14 +57,17 @@
   gap: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  transition: border-color 0.3s ease;
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
 .create-portfolio-form:focus-within {
-  border-color: var(--border-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(17, 17, 17, 0.85);
 }
 
 .create-portfolio-form input {
@@ -118,28 +121,34 @@
 
 .dashboard-error {
   color: var(--text-secondary);
-  background: var(--bg-secondary);
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dashboard-error-inline {
   padding: 1rem 1.5rem;
-  background: var(--bg-secondary);
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: var(--text-secondary);
-  border-radius: 8px;
+  border-radius: 16px;
   margin-bottom: 1.5rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 400;
 }
 
 .empty-state {
   text-align: center;
   padding: 6rem 2rem;
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  border: 1px solid var(--border-subtle);
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .empty-state h3 {
@@ -186,13 +195,16 @@
 }
 
 .portfolio-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  /* Frosted glass effect inspired by mobile finance app */
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   padding: 2rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   display: block;
   position: relative;
   overflow: hidden;
@@ -205,16 +217,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--accent-glow);
+  background: linear-gradient(135deg, rgba(180, 220, 255, 0.05), transparent);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-hover);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  background: rgba(17, 17, 17, 0.85);
 }
 
 .portfolio-card:hover::before {
@@ -223,8 +236,8 @@
 
 .portfolio-card h3 {
   font-size: 1.5rem;
-  font-weight: 300;
-  margin-bottom: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.02em;
   position: relative;
@@ -233,10 +246,11 @@
 
 .holdings-count {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 400;
   position: relative;
   z-index: 1;
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {

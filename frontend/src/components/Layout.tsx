@@ -13,13 +13,19 @@ export default function Layout({ children }: LayoutProps) {
     <div className="layout">
       <header className="header">
         <div className="header-content">
-          <Link to="/" className="logo">
+          <Link to="/dashboard" className="logo">
             <h1>One View</h1>
           </Link>
           <nav className="nav">
             <Link 
               to="/" 
               className={location.pathname === '/' ? 'active' : ''}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/dashboard" 
+              className={location.pathname === '/dashboard' ? 'active' : ''}
             >
               Dashboard
             </Link>

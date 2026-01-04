@@ -1,29 +1,22 @@
 import { useEffect, useRef } from 'react'
+import PlanetMap from './PlanetMap'
 import './AmbientBackground.css'
 
 export default function AmbientBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const planetRef = useRef<HTMLDivElement>(null)
+  const planetContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Animate planet
-    if (planetRef.current) {
-      const planet = planetRef.current
-      let rotation = 0
-      const animate = () => {
-        rotation += 0.1
-        planet.style.transform = `rotate(${rotation}deg)`
-        requestAnimationFrame(animate)
-      }
-      animate()
-    }
-
     // Floating tickers animation
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas) {
+      return
+    }
 
     const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    if (!ctx) {
+      return
+    }
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
@@ -32,7 +25,7 @@ export default function AmbientBackground() {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    const tickers = ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'TSLA', 'AMZN', 'META', 'SPY']
+    const tickers = ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'TSLA', 'AMZN', 'META', 'SPY', 'NFLX', 'DIS', 'AMD', 'INTC', 'CRM', 'ADBE', 'PYPL']
     const particles: Array<{
       symbol: string
       x: number
@@ -41,23 +34,23 @@ export default function AmbientBackground() {
       opacity: number
     }> = []
 
-    // Initialize particles
-    for (let i = 0; i < 15; i++) {
+    // Initialize particles - MORE VISIBLE
+    for (let i = 0; i < 25; i++) {
       particles.push({
         symbol: tickers[Math.floor(Math.random() * tickers.length)],
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        speed: 0.1 + Math.random() * 0.2,
-        opacity: 0.03 + Math.random() * 0.04
+        speed: 0.15 + Math.random() * 0.25,
+        opacity: 0.15 + Math.random() * 0.2 // Much more visible (was 0.03-0.07)
       })
     }
 
-    let animationFrameId: number
+    let tickerAnimationFrameId: number
 
-    const animate = () => {
+    const animateTickers = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.fillStyle = '#ffffff'
-      ctx.font = '300 14px Inter, sans-serif'
+      ctx.font = '500 16px Inter, sans-serif' // Bolder and larger
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
 
@@ -73,21 +66,21 @@ export default function AmbientBackground() {
       })
 
       ctx.globalAlpha = 1
-      animationFrameId = requestAnimationFrame(animate)
+      tickerAnimationFrameId = requestAnimationFrame(animateTickers)
     }
 
-    animate()
+    animateTickers()
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
-      cancelAnimationFrame(animationFrameId)
+      cancelAnimationFrame(tickerAnimationFrameId)
     }
   }, [])
 
   return (
     <div className="ambient-background">
-      <div className="ambient-planet" ref={planetRef}>
-        <div className="planet-sphere"></div>
+      <div className="ambient-planet" ref={planetContainerRef}>
+        <PlanetMap />
       </div>
       <canvas ref={canvasRef} className="ambient-tickers" />
     </div>

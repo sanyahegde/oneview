@@ -1,8 +1,6 @@
-import openai
+from openai import OpenAI
 from typing import List, Dict
 from app.core.config import settings
-
-openai.api_key = settings.OPENAI_API_KEY
 
 
 async def analyze_sentiment(headlines: List[str]) -> float:
